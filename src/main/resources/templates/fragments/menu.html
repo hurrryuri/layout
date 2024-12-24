@@ -1,0 +1,51 @@
+<!--HTML의 기본형태는 현재페이지를 수정하기 위해서 필요-->
+<!--실질적으로 필요한 부분은 fragment 부분만 필요함-->
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--layout은 사용하지 않으므로 생략 가능-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS : HTML의 모양을 꾸미는 작업(크기, 색상, 글꼴, 정렬) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- script src = "주소"-->
+    <!-- JavaScript : HTML의 동작(애니메이션) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div th:fragment="header"> <!--이 부분이 복사가되어서 replace="~{fragments/menu::header}"에 적용-->
+    <!--메뉴구성-->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand" th:href="@{/}">홈(회사로고)</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link" th:href="@{/cals}">계산기</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" th:href="@{/game}">가위바위보</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" th:href="@{/member}">회원가입</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Link</a></li>
+                              <li><a class="dropdown-item" href="#">Another link</a></li>
+                              <li><a class="dropdown-item" href="#">A third link</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </div>
+</body>
+</html>
